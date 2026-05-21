@@ -1,15 +1,26 @@
 {
-  "name": "backend",
+  "name": "compilador-sql-backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "Backend del compilador SQL web para el curso de Compiladores.",
+  "main": "dist/server.js",
   "type": "commonjs",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "echo \"Pruebas pendientes de configurar\""
+  },
+  "keywords": [
+    "compiler",
+    "sql",
+    "lexer",
+    "parser",
+    "semantic-analyzer",
+    "typescript",
+    "express"
+  ],
+  "author": "Grupo Alianza Laboral",
+  "license": "MIT",
   "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
