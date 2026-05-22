@@ -5,11 +5,13 @@
   "main": "dist/server.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js",
-    "test": "echo \"Pruebas pendientes de configurar\""
-  },
+  "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+  "build": "tsc",
+  "start": "node dist/server.js",
+  "test": "vitest run tests/lexer.test.ts",
+  "test:all": "vitest run",
+  "test:watch": "vitest"
+},
   "keywords": [
     "compiler",
     "sql",
