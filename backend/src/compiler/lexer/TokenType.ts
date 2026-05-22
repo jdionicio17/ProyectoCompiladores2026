@@ -1,0 +1,46 @@
+export const TokenType = {
+  SELECT: "SELECT",
+  FROM: "FROM",
+  WHERE: "WHERE",
+
+  INSERT: "INSERT",
+  INTO: "INTO",
+  VALUES: "VALUES",
+  UPDATE: "UPDATE",
+  SET: "SET",
+  DELETE: "DELETE",
+  CREATE: "CREATE",
+  TABLE: "TABLE",
+  DROP: "DROP",
+
+  AND: "AND",
+  OR: "OR",
+  NOT: "NOT",
+
+  IDENTIFIER: "IDENTIFIER",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+
+  EQUAL: "EQUAL",
+  GREATER: "GREATER",
+  LESS: "LESS",
+  GREATER_EQUAL: "GREATER_EQUAL",
+  LESS_EQUAL: "LESS_EQUAL",
+  NOT_EQUAL: "NOT_EQUAL",
+
+  PLUS: "PLUS",
+  MINUS: "MINUS",
+  SLASH: "SLASH",
+
+  ASTERISK: "ASTERISK",
+  COMMA: "COMMA",
+  SEMICOLON: "SEMICOLON",
+  DOT: "DOT",
+  LEFT_PAREN: "LEFT_PAREN",
+  RIGHT_PAREN: "RIGHT_PAREN",
+
+  END_OF_FILE: "END_OF_FILE",
+  INVALID: "INVALID"
+} as const;
+
+export type TokenType = (typeof TokenType)[keyof typeof TokenType];
