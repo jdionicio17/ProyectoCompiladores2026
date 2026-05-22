@@ -32,7 +32,9 @@ const TokenTable = ({ tokens }: TokenTableProps) => {
 
           <tbody>
             {tokens.map((token, index) => (
-              <tr key={`${token.type}-${token.value}-${token.line}-${token.column}-${index}`}>
+              <tr
+                key={`${token.type}-${token.value}-${token.line}-${token.column}-${index}`}
+              >
                 <td>{index + 1}</td>
                 <td>{token.type}</td>
                 <td>{token.value || "-"}</td>
