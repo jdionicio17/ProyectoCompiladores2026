@@ -1,15 +1,22 @@
-import { Request, Response } from "express";
+import type { Request, Response } from "express";
 import { CompilerService } from "../compiler/CompilerService";
-import type { CompileRequest } from "../types/CompileRequest";
+import type { CompileRequest, DatabaseDialect } from "../types/CompileRequest";
 import { sendError, sendSuccess } from "../utils/response";
 
 const compilerService = new CompilerService();
+
+const validDialects: DatabaseDialect[] = [
+    "mysql",
+    "postgresql",
+    "sqlserver",
+    "mongodb"
+];
 
 export const compileQuery = (req: Request, res: Response) => {
     try {
         const body = req.body as Partial<CompileRequest>;
 
-        if (!body.query) {
+        if (!body.query || body.query.trim() === "") {
             return sendError(res, "El campo query es obligatorio.", 400, [
                 {
                     phase: "SYSTEM",
@@ -18,8 +25,8 @@ export const compileQuery = (req: Request, res: Response) => {
             ]);
         }
 
-        if (!body.dialect) {
-            return sendError(res, "El campo dialect es obligatorio.", 400, [
+        if (!body.dialect || !validDialects.includes(body.dialect)) {
+            return sendError(res, "El campo dialect es inválido.", 400, [
                 {
                     phase: "SYSTEM",
                     message:
